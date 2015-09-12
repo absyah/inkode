@@ -21,7 +21,7 @@ angular.module('inkodeApp')
               "\t<title>Inkode | Developer do design</title>\n" +
               "</head>\n" +
               "<body>\n" +
-              "\tContent of the html... you can copy and paste your favourite html design ^_^\n" +
+              "\tStart typing here... you can copy and paste your favourite html design as well. ^_^\n" +
               "</body>\n" +
               "</html>"
     }
