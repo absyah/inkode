@@ -30,5 +30,6 @@ var inkodeApp = angular.module('inkodeApp', [
     'ngResource',
     'ngSanitize',
     'ngTouch',
-    'ui.ace'
+    'ui.ace',
+    'ngDragDrop'
   ]);

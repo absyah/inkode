@@ -1,1 +1,15 @@
-.ace_editor { height: 200px; }
+.ace_editor { height: 600px; width: 50%}
+
+.code-preview {
+  border-style: dotted;
+  border-color: black;
+}
+.code-preview iframe {
+  border: none;
+}
+
+.code-editor {
+  position: relative;
+  top: -900px;
+  left: 600px;
+}
