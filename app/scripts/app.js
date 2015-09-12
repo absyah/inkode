@@ -23,12 +23,12 @@ var settings = {
 };
 
 
-angular
-  .module('inkodeApp', [
+var inkodeApp = angular.module('inkodeApp', [
     'ngAnimate',
     'ngAria',
     'ngMessages',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.ace'
   ]);
