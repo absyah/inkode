@@ -9,9 +9,14 @@
  */
 angular.module('inkodeApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.page = {
-      design: defaultDesign()
+    
+    function designInit() {
+      $scope.page = {
+        design: defaultDesign()
+      }
     }
+
+    designInit()
 
     mailchimpInit();
 
@@ -32,7 +37,7 @@ angular.module('inkodeApp')
               "\t<title>Inkode | Developer do design</title>\n" +
               "</head>\n" +
               "<body>\n" +
-              "\tStart typing here... you can copy and paste your favourite html design as well. ^_^\n" +
+              "\tStart typing here... you can copy and paste your favourite html design as well.\n" +
               "</body>\n" +
               "</html>"
     }
@@ -50,6 +55,10 @@ angular.module('inkodeApp')
         }, function(error) {
           $scope.mailchimp.error = true;
         })
+    }
+
+    $scope.resetDesign = function() {
+      designInit();
     }
 
   });

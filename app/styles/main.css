@@ -1,8 +1,8 @@
 .ace_editor { height: 600px; width: 50%}
 
 .code-preview {
-  border-style: dotted;
-  border-color: black;
+  border-style: solid;
+  border-color: #ddd;
 }
 .code-preview iframe {
   border: none;
