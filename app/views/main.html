@@ -5,7 +5,7 @@
 
   <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
     <p><i class="fa fa-arrows"></i> <strong>draggable text editor</strong></p>
-    <div ng-model="page.design" ui-ace="{theme:'twilight', mode: 'html', useWrapMode : true}"></div>
+    <div ng-model="page.design" ui-ace="{theme:'twilight', mode: 'html', useWrapMode: true}"></div>
     <div class="panel panel-default" style="width: 50%">
       <div class="panel-body">
         <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
@@ -20,19 +20,24 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <p><strong>Newsletter for new feature</strong></p>
-          <div class="input-group" ng-hide="mailchimp.success">
+          <div class="input-group" ng-hide="mailchimp.result === 'success'">
+            <input class="hidden" type="hidden" ng-model="mailchimp.username">
+            <input class="hidden" type="hidden" ng-model="mailchimp.dc">
+            <input class="hidden" type="hidden" ng-model="mailchimp.u">
+            <input class="hidden" type="hidden" ng-model="mailchimp.id">
+
             <input class="form-control" type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>
             <span class="input-group-btn">
               <button class="btn btn-primary" ng-disabled="MailchimpSubscriptionForm.$invalid">Let me know!</button>
             </span>
             <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
           </div>
-          <div ng-show="mailchimp.error" ng-cloak class="alert alert-danger">
-            <span>Sadly there is a problem, please try again or contact developer.</span>
+          <div ng-show="mailchimp.result === 'error'" ng-cloak class="alert alert-danger">
+            <span>{{mailchimp.errorMessage}}</span>
           </div>
 
           <!-- Show success message if MailChimp returned successfully. -->
-          <div ng-show="mailchimp.success" ng-cloak class="alert alert-success">
+          <div ng-show="mailchimp.result === 'success'" ng-cloak class="alert alert-success">
             <span>You are in the list! We will let you know when we are ready for another awesomeness!</span>
           </div>
         </div>
