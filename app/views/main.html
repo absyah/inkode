@@ -28,7 +28,7 @@
 
             <input class="form-control" type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>
             <span class="input-group-btn">
-              <button class="btn btn-primary" ng-disabled="MailchimpSubscriptionForm.$invalid">Let me know!</button>
+              <button class="btn btn-primary" ng-disabled="MailchimpSubscriptionForm.$invalid || subscribeIsDisabled">Let me know!</button>
             </span>
             <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
           </div>

@@ -48,6 +48,8 @@ angular.module('inkodeApp')
     }
 
     $scope.addSubscription = function (mailchimp) {
+      $scope.subscribeIsDisabled = true;
+
       var actions,
           MailChimpSubscription,
           params = {},
@@ -85,6 +87,7 @@ angular.module('inkodeApp')
 
           // Mailchimp returned an error.
           if (response.result === 'error') {
+            $scope.subscribeIsDisabled = false;
             if (response.msg) {
               // Remove error numbers, if any.
               var errorMessageParts = response.msg.split(' - ');
@@ -106,6 +109,7 @@ angular.module('inkodeApp')
 
         // Error sending data to MailChimp
         function (error) {
+          $scope.subscribeIsDisabled = false;
           $log.error('MailChimp Error: %o', error);
         }
       );
