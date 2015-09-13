@@ -8,3 +8,31 @@
     <div ng-model="page.design" ui-ace="{theme:'twilight', mode: 'html', useWrapMode : true}"></div>
   </div>
 </div>
+
+<form name="MailchimpSubscriptionForm" ng-submit="addSubscription(mailchimp)">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><strong>Newsletter for feature update</strong></p>
+          <div class="input-group" ng-hide="mailchimp.success">
+            <input class="form-control" type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>
+            <span class="input-group-btn">
+              <button class="btn btn-primary" ng-disabled="MailchimpSubscriptionForm.$invalid">Let me know!</button>
+            </span>
+            <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+          </div>
+          <div ng-show="mailchimp.error" ng-cloak class="alert alert-danger">
+            <span>Sadly there is a problem, please try again or contact developer.</span>
+          </div>
+
+          <!-- Show success message if MailChimp returned successfully. -->
+          <div ng-show="mailchimp.success" ng-cloak class="alert alert-success">
+            <span>You are in the list! We will let you know when we are ready for another awesomeness!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

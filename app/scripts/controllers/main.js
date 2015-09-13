@@ -8,9 +8,20 @@
  * Controller of the inkodeApp
  */
 angular.module('inkodeApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $http) {
     $scope.page = {
       design: defaultDesign()
+    }
+
+    mailchimpInit();
+
+    function mailchimpInit() {
+      $scope.mailchimp = {
+        username: 'herokuapp',
+        dc: 'us11',
+        u: 'f19bab9ca00ea8b1bf55b2209',
+        id: 'b64473e5af'
+      }
     }
 
     function defaultDesign() {
@@ -25,4 +36,20 @@ angular.module('inkodeApp')
               "</body>\n" +
               "</html>"
     }
+
+    $scope.addSubscription = function(mailchimp) {
+      var mailchimpParams = {
+        EMAIL: mailchimp.EMAIL
+      }
+
+      $http
+        .post('https://herokuapp.us11.list-manage.com/subscribe/post?u=f19bab9ca00ea8b1bf55b2209&id=b64473e5af', mailchimpParams)
+        .then(function(response) {
+          mailchimpInit();
+          $scope.mailchimp.success = true;
+        }, function(error) {
+          $scope.mailchimp.error = true;
+        })
+    }
+
   });

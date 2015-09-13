@@ -31,5 +31,6 @@ var inkodeApp = angular.module('inkodeApp', [
     'ngSanitize',
     'ngTouch',
     'ui.ace',
-    'ngDragDrop'
+    'ngDragDrop',
+    'mailchimp'
   ]);
