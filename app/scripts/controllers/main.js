@@ -7,17 +7,22 @@
  * # MainCtrl
  * Controller of the inkodeApp
  */
-angular.module('inkodeApp')
-  .controller('MainCtrl', ['$log', '$resource', '$scope', '$rootScope',
+inkodeApp.controller('MainCtrl', ['$log', '$resource', '$scope', '$rootScope',
               function ($log, $resource, $scope, $rootScope) {
     
     function designInit() {
       $scope.page = {
-        design: defaultDesign()
+        html: defaultHtml(),
+        css: '',
+        js: ''
       }
     }
 
     designInit()
+
+    $scope.$watch('page', function(newVal) {
+      $scope.page = newVal;
+    }, true);
 
     mailchimpInit();
 
@@ -30,7 +35,7 @@ angular.module('inkodeApp')
       }
     }
 
-    function defaultDesign() {
+    function defaultHtml() {
       return "<!DOCTYPE html>\n" +
               "<html>\n" +
               "<head>\n" +

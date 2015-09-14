@@ -25,6 +25,7 @@ var settings = {
 
 var inkodeApp = angular.module('inkodeApp', [
     'ngAnimate',
+    'ui.router',
     'ngAria',
     'ngMessages',
     'ngResource',

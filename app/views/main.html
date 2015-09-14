@@ -5,13 +5,25 @@
 
   <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
     <p><i class="fa fa-arrows"></i> <strong>draggable text editor</strong></p>
-    <div ng-model="page.design" ui-ace="{theme:'twilight', mode: 'html', useWrapMode: true}"></div>
+    <div ng-model="page.html" ui-ace="{theme:'twilight', mode: 'html', useWrapMode: true}"></div>
     <div class="panel panel-default" style="width: 50%">
       <div class="panel-body">
         <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
       </div>
     </div>
   </div>
+
+  <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
+    <p><i class="fa fa-arrows"></i> <strong>draggable text editor</strong></p>
+    <div ng-model="page.css" ui-ace="{theme:'twilight', mode: 'css', useWrapMode: true}"></div>
+    <div class="panel panel-default" style="width: 50%">
+      <div class="panel-body">
+        <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <form name="MailchimpSubscriptionForm" ng-submit="addSubscription(mailchimp)">
