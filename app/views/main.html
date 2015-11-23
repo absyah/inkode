@@ -1,23 +1,69 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div style="height:1000px">
+  <div class="code-preview" data-drop="true" data-jqyoui-options jqyoui-droppable>
+    <iframe frame-preview="" width="100%" height="900px"></iframe>
+  </div>
+
+  <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
+    <p><i class="fa fa-arrows"></i> <strong>HTML</strong></p>
+    <div ng-model="page.html" ui-ace="{theme:'twilight', mode: 'html', useWrapMode: true}"></div>
+    <div class="panel panel-default" style="width: 50%">
+      <div class="panel-body">
+        <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
+    <p><i class="fa fa-arrows"></i> <strong>CSS</strong></p>
+    <div ng-model="page.css" ui-ace="{theme:'twilight', mode: 'css', useWrapMode: true}"></div>
+    <div class="panel panel-default" style="width: 50%">
+      <div class="panel-body">
+        <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
+    <p><i class="fa fa-arrows"></i> <strong>Javascript</strong></p>
+    <div ng-model="page.javascript" ui-ace="{theme:'twilight', mode: 'javascript', useWrapMode: true}"></div>
+    <div class="panel panel-default" style="width: 50%">
+      <div class="panel-body">
+        <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<form name="MailchimpSubscriptionForm" ng-submit="addSubscription(mailchimp)">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><strong>Newsletter for new feature</strong></p>
+          <div class="input-group" ng-hide="mailchimp.result === 'success'">
+            <input class="hidden" type="hidden" ng-model="mailchimp.username">
+            <input class="hidden" type="hidden" ng-model="mailchimp.dc">
+            <input class="hidden" type="hidden" ng-model="mailchimp.u">
+            <input class="hidden" type="hidden" ng-model="mailchimp.id">
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+            <input class="form-control" type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>
+            <span class="input-group-btn">
+              <button class="btn btn-primary" ng-disabled="MailchimpSubscriptionForm.$invalid || subscribeIsDisabled">Let me know!</button>
+            </span>
+            <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+          </div>
+          <div ng-show="mailchimp.result === 'error'" ng-cloak class="alert alert-danger">
+            <span>{{mailchimp.errorMessage}}</span>
+          </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+          <!-- Show success message if MailChimp returned successfully. -->
+          <div ng-show="mailchimp.result === 'success'" ng-cloak class="alert alert-success">
+            <span>You are in the list! We will let you know when we are ready for another awesomeness!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

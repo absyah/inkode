@@ -8,12 +8,30 @@
  *
  * Main module of the application.
  */
-angular
-  .module('inkodeApp', [
+
+var currentEnv = "dev";
+var settings = {
+  endpoints: {
+    "dev": "",
+    "staging": "",
+    "production": ""
+  },
+
+  endpoint: function() {
+    return settings.endpoints[currentEnv];
+  }
+};
+
+
+var inkodeApp = angular.module('inkodeApp', [
     'ngAnimate',
+    'ui.router',
     'ngAria',
     'ngMessages',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.ace',
+    'ngDragDrop',
+    'mailchimp'
   ]);
