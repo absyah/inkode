@@ -23,6 +23,15 @@
     </div>
   </div>
 
+  <div class="code-editor" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{animate:true}">
+    <p><i class="fa fa-arrows"></i> <strong>Javascript</strong></p>
+    <div ng-model="page.javascript" ui-ace="{theme:'twilight', mode: 'javascript', useWrapMode: true}"></div>
+    <div class="panel panel-default" style="width: 50%">
+      <div class="panel-body">
+        <a href="" class="btn btn-danger pull-right" ng-click="resetDesign()">Reset</a>
+      </div>
+    </div>
+  </div>
 
 </div>
 

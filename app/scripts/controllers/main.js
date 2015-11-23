@@ -14,7 +14,7 @@ inkodeApp.controller('MainCtrl', ['$log', '$resource', '$scope', '$rootScope',
       $scope.page = {
         html: defaultHtml(),
         css: '',
-        js: ''
+        javascript: ''
       }
     }
 
